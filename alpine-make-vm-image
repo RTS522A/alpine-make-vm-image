@@ -540,7 +540,7 @@ rc_add shutdown killprocs savecache mount-ro
 #-----------------------------------------------------------------------
 if [ "$PACKAGES" ]; then
 	einfo 'Installing additional packages'
-	_apk add --no-cache --root . $PACKAGES
+	_apk add --no-cache --virtual --root . $PACKAGES
 	rm -rf /var/cache/apk/*
 fi
 
