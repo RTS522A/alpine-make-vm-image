@@ -25,8 +25,12 @@ jobs:
               --script-chroot \
               alpine.qcow2 -- ./example/configure.sh
               
+      - name: Convert to vmdk       
+        run: qemu-img convert -f qcow2 -O vmdk -o adapter_type=lsilogic,subformat=monolithicFlat alpine.qcow2 alpine.vmdk
+      
+              
       - name: Tar files
-        run: tar -czf alpine.tar.gz alpine.qcow2
+        run: tar -czf alpine.tar.gz alpine.wmk
 
       - uses: actions/upload-artifact@v3
         with:
