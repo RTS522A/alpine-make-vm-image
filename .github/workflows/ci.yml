@@ -30,7 +30,7 @@ jobs:
       
               
       - name: Tar files
-        run: tar -czf alpine.tar.gz alpine.vmdk
+        run: tar -czf alpine.tar.gz alpine.qcow2 alpine.vmdk
 
       - uses: actions/upload-artifact@v3
         with:
