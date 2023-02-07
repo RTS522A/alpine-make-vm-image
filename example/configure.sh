@@ -14,9 +14,13 @@ step 'Set up networking'
 cat > /etc/network/interfaces <<-EOF
 	iface lo inet loopback
 	iface eth0 inet dhcp
+	iface eth1 inet static
+		address 192.168.1.1
+		netmask 255.255.255.0
 EOF
 ln -s networking /etc/init.d/net.lo
 ln -s networking /etc/init.d/net.eth0
+ln -s networking /etc/init.d/net.eth1
 
 step 'Adjust rc.conf'
 sed -Ei \
@@ -30,6 +34,7 @@ rc-update add acpid default
 rc-update add chronyd default
 rc-update add crond default
 rc-update add net.eth0 default
+rc-update add net.eth1 default
 rc-update add net.lo boot
 rc-update add termencoding boot
 
