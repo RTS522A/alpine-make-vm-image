@@ -23,7 +23,7 @@ jobs:
               --fs-skel-dir example/rootfs \
               --fs-skel-chown root:root \
               --script-chroot \
-              alpine.qcow2 -- ./vmm/configure.sh
+              alpine.qcow2 -- ./example/configure.sh
               
       - name: Tar files
         run: tar -czf alpine.tar.gz alpine.qcow2
